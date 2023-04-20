@@ -48,7 +48,7 @@ pip install git+https://github.com/openai/CLIP.git
 
 ## <a name="GettingStarted"></a>Getting Started
 
-You can test the Text2Seg on text2seg.ipynb notebook. 
+You can test the Text2Seg on demo.ipynb notebook. 
 
 
 ## Citing Text2Seg
