@@ -14,6 +14,7 @@ Text2Seg is a pipeline that combined multiple Vision Foundation Models to perfor
 ```
 conda create --name text2seg python==3.8
 conda activate text2seg
+pip install chardet ftfy regex tqdm
 ```
 
 2. Install Pytorch version that fit you driver.
@@ -38,6 +39,11 @@ cd ..
 5. Download CLIP Surgery repository
 ```
 git clone https://github.com/xmed-lab/CLIP_Surgery.git
+```
+
+6. Install CLIP repository
+```
+pip install git+https://github.com/openai/CLIP.git
 ```
 
 ## <a name="GettingStarted"></a>Getting Started
