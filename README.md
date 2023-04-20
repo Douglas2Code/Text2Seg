@@ -17,7 +17,7 @@ conda activate text2seg
 pip install chardet ftfy regex tqdm
 ```
 
-2. Install Pytorch version that fit you driver.
+2. Install Pytorch version that fit you driver(tested on pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3).
 
 3. Install Segment Anything and download weights:
 
