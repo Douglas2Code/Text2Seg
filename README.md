@@ -1,7 +1,7 @@
 # Text2Seg
 
 
-[Jielu Zhang](), [Zhongliang Zhou](), [Gengchen Mai](), [Lan Mu](), [Mengxuan Hu](), [Sheng Li]()
+[Jielu Zhang](https://geography.uga.edu/directory/people/jielu-zhang), [Zhongliang Zhou](https://www.zhongliangzhou.com/), [Gengchen Mai](https://gengchenmai.github.io/), [Lan Mu](https://geography.uga.edu/directory/people/lan-mu), [Mengxuan Hu](https://www.linkedin.com/in/hu-mengxuan-823675263/), [Sheng Li](https://sheng-li.org/)
 
 ![Text2Seg design](framework.png?raw=true)
 
