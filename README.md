@@ -34,7 +34,6 @@ git clone https://github.com/IDEA-Research/GroundingDINO.git
 cd GroundingDINO
 pip install -e .
 cd ..
-
 ```
 
 5. Download CLIP Surgery repository
