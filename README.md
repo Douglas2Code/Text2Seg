@@ -12,6 +12,7 @@ Text2Seg is a pipeline that combined multiple Vision Foundation Models to perfor
 1. Create an new conda environment 
 
 ```
+git clone https://github.com/Douglas2Code/Text2Seg.git
 conda create --name text2seg python==3.8
 conda activate text2seg
 pip install chardet ftfy regex tqdm
