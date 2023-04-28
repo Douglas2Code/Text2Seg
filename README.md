@@ -62,8 +62,3 @@ If you find Text2Seg useful, please use the following BibTeX entry.
   journal={arXiv preprint arXiv:2304.10597},
   year={2023}
 }
-
-
-```
-
-```
