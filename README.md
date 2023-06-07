@@ -12,10 +12,10 @@ Text2Seg is a pipeline that combined multiple Vision Foundation Models to perfor
 1. Create an new conda environment 
 
 ```
-git clone https://github.com/Douglas2Code/Text2Seg.git
 conda create --name text2seg python==3.8
 conda activate text2seg
 pip install chardet ftfy regex tqdm
+mkdir Pretrained
 ```
 
 2. Install Pytorch version that fit you driver(tested on pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3).
@@ -24,7 +24,9 @@ pip install chardet ftfy regex tqdm
 
 ```
 pip install git+https://github.com/facebookresearch/segment-anything.git
+cd Pretrained
 wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
+cd ../
 ```
 
 4. Install Grounding DINO
@@ -32,8 +34,11 @@ wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
 ```
 git clone https://github.com/IDEA-Research/GroundingDINO.git
 cd GroundingDINO
-pip install -e .
+pip3 install -q -e .
 cd ..
+cd Pretrained
+wget -q https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth
+cd ../
 ```
 
 5. Download CLIP Surgery repository

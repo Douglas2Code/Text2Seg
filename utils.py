@@ -150,7 +150,7 @@ def load_model_hf(repo_id, filename, ckpt_config_filename, device='cpu'):
     return model  
 
 # detect object using grounding DINO
-def detect(image, image_source, text_prompt, model, box_threshold = 0.3, text_threshold = 0.25):
+def detect(image, image_source, text_prompt, model, box_threshold = 0.35, text_threshold = 0.25):
     boxes, logits, phrases = predict(
       model=model, 
       image=image, 
@@ -391,17 +391,21 @@ def segment_CLIP(masks, image, text_prompts):
 def VFM_Segmentation(text_prompts, image, image_source, grounding_dino=False, CLIPS=False, CLIP=False, points_per_side=16, Outputs="None"):
     # perform grounding dino for detection
     
-    try:
-        os.mkdir(Outputs)
-    except OSError as error:
-        print("Folder Exsist") 
+    # try:
+    #     os.mkdir(Outputs)
+    # except OSError as error:
+    #     print("Folder Exsist") 
     if grounding_dino:
         bounding_box_list = []
         for prompt in text_prompts:
             annotated_frame, detected_boxes = detect(image, image_source, text_prompt=prompt, model=groundingdino_model)
+            # print(prompt) 
+            # print(np.array(detected_boxes).shape)
+            # print(np.array(detected_boxes))
             bounding_box_list.extend(np.array(detected_boxes))
         bounding_box_list = np.array(bounding_box_list)
-
+        print(bounding_box_list)
+        
         
     if grounding_dino and CLIPS and CLIP:
         print("Grounding DINO + CLIPS + SAM + CLIP")
@@ -445,14 +449,18 @@ def VFM_Segmentation(text_prompts, image, image_source, grounding_dino=False, CL
 
     elif grounding_dino: 
         print("Grounding DINO + SAM")
-        segmented_frame_masks = segment_DINO(image_source, sam_predictor, boxes=torch.as_tensor(bounding_box_list))
-        segmented_frame_masks = (segmented_frame_masks.sum(dim=0)>0)[0]*1
-        annotated_frame_with_mask, mask_image_pil = draw_mask(segmented_frame_masks, image_source,grounding_dino, CLIPS, CLIP)
-        img = Image.fromarray(annotated_frame_with_mask)
-        img = img.resize((500, 500))
-        image_filename = f"./{Outputs}/{text_prompts[0]}_Grounding_DINO_SAM.png"
-        img.save(image_filename)        
-        return segmented_frame_masks, annotated_frame_with_mask
+        if len(bounding_box_list)!=0:
+            
+            segmented_frame_masks = segment_DINO(image_source, sam_predictor, boxes=torch.as_tensor(bounding_box_list))
+            segmented_frame_masks = (segmented_frame_masks.sum(dim=0)>0)[0]*1
+            annotated_frame_with_mask, mask_image_pil = draw_mask(segmented_frame_masks, image_source,grounding_dino, CLIPS, CLIP)
+            # img = Image.fromarray(annotated_frame_with_mask)
+            # img = img.resize((500, 500))
+            # image_filename = f"./{Outputs}/{text_prompts[0]}_Grounding_DINO_SAM.png"
+            # img.save(image_filename)        
+            return segmented_frame_masks, annotated_frame_with_mask, bounding_box_list
+        else:
+            return torch.zeros(image_source[:,:,0].shape), torch.zeros(image_source[:,:,0].shape)
     
     elif CLIPS:
         print("CLIP Surgery + SAM")
