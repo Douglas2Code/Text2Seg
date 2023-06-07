@@ -1,4 +1,4 @@
-# Text2Seg
+# Text2Seg v0.1
 
 
 [Jielu Zhang](https://geography.uga.edu/directory/people/jielu-zhang), [Zhongliang Zhou](https://www.zhongliangzhou.com/), [Gengchen Mai](https://gengchenmai.github.io/), [Lan Mu](https://geography.uga.edu/directory/people/lan-mu), [Mengxuan Hu](https://www.linkedin.com/in/hu-mengxuan-823675263/), [Sheng Li](https://sheng-li.org/)
@@ -6,6 +6,9 @@
 ![Text2Seg design](framework.png?raw=true)
 
 Text2Seg is a pipeline that combined multiple Vision Foundation Models to perform semantic segmentation.
+
+## :fire: UPDATE:
+- **`2023/06/07`**: Update the codebase to solve some known problems with GroundingDINO.
 
 ## Installation
 
