@@ -64,10 +64,11 @@ You can test the Text2Seg on demo.ipynb notebook.
 If you find Text2Seg useful, please use the following BibTeX entry.
 
 ```
-@article{zhang2023text2seg,
-  title={Text2Seg: Remote Sensing Image Semantic Segmentation via Text-Guided Visual Foundation Models},
-  author={Zhang, Jielu and Zhou, Zhongliang and Mai, Gengchen and Mu, Lan and Hu, Mengxuan and Li, Sheng},
-  journal={arXiv preprint arXiv:2304.10597},
-  year={2023}
+@inproceedings{zhang2024text2seg,
+  title={Text2Seg: Zero-shot Remote Sensing Image Semantic Segmentation via Text-Guided Visual Foundation Models},
+  author={Zhang*, Jielu and Zhou*, Zhongliang and Mai, Gengchen and Hu, Mengxuan and Guan, Zihan and Li, Sheng and Mu, Lan},
+  booktitle={Proceedings of the 7th ACM SIGSPATIAL International Workshop on AI for Geographic Knowledge Discovery},
+  pages={63--66},
+  year={2024}
 }
 ```
